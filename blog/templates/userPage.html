@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body>
+<p>welcome {{ userName }}</p><br />
+<form action="{% url "Login_up:Logoff"%}">
+<input type="submit"  value="注销" name="Logoff"/><br />
+</form>
+ <a href="/Login/newPassage">新文章</a>
+<br />
+<p>----------------------------------------------------------------------------------------------------</p><br />
+    {% for passage in passages%}
+        <a href="{% url 'Login_up:passage' passage.id %}">{{ passage.title }}</a><br />
+        作者：{{ passage.author.userName }}<br>
+       <br/>
+    {% endfor %}
+</body>
+</html>

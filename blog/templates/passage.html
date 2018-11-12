@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章</title>
+</head>
+<body>
+<a href="/Login/home">返回主页</a> <br />
+<form action="{% url "Login_up:passage" passage.id %}" method="post">
+        <p>作者:{{ passage.author.userName }} 发表时间：{{ passage.creationTime }} 修改时间：{{ passage.changeTime }}</p>
+    <br/>
+          <p>标题:{{ passage.title }}</p><br/>
+      <br/>
+          <p>内容:{{ passage.content }}</p>
+      <br/>
+    <input type="submit" value="修改" name="edit"><input type="submit" value="删除" name="delete"><br />
+ </form>
+
+
+
+
+<div>
+    <form action="{% url "Login_up:replies" passage.id %}" method="post">
+    <input type="text" name="replies">
+        <input type="submit" value="回复" name="reply"><br>
+    </form>
+        {% for replies in allReplies %}
+       <p>{{ replies.author.userName }}:{{ replies.content }}--{{ replies.replyTime }}</p><br>
+    {% endfor %}
+
+
+</div>
+
+</body>
+</html>

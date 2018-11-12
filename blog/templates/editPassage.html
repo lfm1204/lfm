@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+</head>
+<body>
+<a href="/Login/home">返回主页</a> <br />
+<form action="{% url "Login_up:editPassage" passage.id%}" method="post">
+      <label>
+         文章标题
+         <input type="text" name="title" value="{{ passage.title }}"/>
+     </label>
+     <br>
+     <label>
+         文章内容
+         <input type="text" name="content" value="{{ passage.content }}" style="height: 50px;width: 50px"/>
+     </label>
+     <br>
+     <input type="submit" value="完成" name="finish">
+    {{ result }}
+    </form>
+</body>
+</html>

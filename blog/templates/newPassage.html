@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新文章</title>
+</head>
+<a href="/Login/home">返回主页</a> <br />
+<form action="{% url "Login_up:newPassage" %}" method="post">
+      <label>
+         文章标题
+         <input type="text" name="title"/>
+     </label>
+     <br>
+     <label>
+         文章内容
+         <input type="text" name="content" style="height: 50px;width: 50px"/>
+     </label>
+     <br>
+     <input type="submit" value="提交" name="submit">
+    {{ result }}
+ </form>
+</body>
+</html>
